@@ -1,0 +1,47 @@
+.country{
+    margin-top: 5%;
+    margin-left: 30%;
+    padding-bottom: 2%;
+    height: 50%;
+    width: 40%; 
+    background-color: #dce6f1;
+    border-radius: 2%;
+    border: 1px solid #2b0030;
+}
+
+.country:hover{
+    box-shadow: 5px 5px 5px 5px #9094ca;
+}
+
+.country .field{
+    font-size: medium;
+    font-weight: 500;
+    color: #2b0030;
+}
+
+.flag-container{
+    margin: auto;
+    width: 250px;
+}
+
+.flag-image{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.border-container{
+    margin-left: 35%;
+}
+
+#border{
+    text-align: left;
+}
+
+.border-value{
+    margin-left: 15%;
+}
+
+.label{
+    color: rgb(74, 108, 219);
+}
