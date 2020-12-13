@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './country.css';
+const moment = require('moment-timezone');
 class  Country extends Component {
     constructor(props) {
         super(props);
@@ -14,9 +15,25 @@ class  Country extends Component {
             borders: this.props.borders.map(
                 (country,idx) => <li className="border-value" key={idx}>{country}</li>
             ),
+            alpha2Code: this.props.alpha2Code,
             flag: this.props.flag,
          }
     }
+
+    getCurrentTimeAtGivenTimezone = (timezone,country,format) => {
+        return moment.tz(timezone).format(format);
+    }
+
+    getCurrentTimeInCountry = (country) => {
+        const format = 'MMMM Do YYYY, h:mm:ss a';
+        const defaultTimezone = 'Asia/Kolkata';
+        moment.tz.setDefault(defaultTimezone);
+        let timezone = moment.tz.zonesForCountry(country);
+        if(timezone){
+            return this.getCurrentTimeAtGivenTimezone(timezone[0],country,format);
+        }
+    }
+
     render() { 
         return (
             <div className="country">
@@ -31,6 +48,7 @@ class  Country extends Component {
                 <div className="flag-container">
                     <img className="flag-image" src={this.state.flag} alt={this.state.countryName}></img>
                 </div>
+                <p className="field"><span className="label">Current Time: </span>{this.getCurrentTimeInCountry(this.state.alpha2Code)}</p>
             </div>
         );
     }

@@ -22,7 +22,7 @@ class AllCountries extends Component {
                 {this.state.countryDetails.map((d, idx) => {
                 return (<Country key={idx} name={d.name} nativeName={d.nativeName} 
                     capital={d.capital} area={d.area} region={d.region} flag={d.flag} 
-                    currencies={d.currencies} borders={d.borders}></Country>)
+                    currencies={d.currencies} borders={d.borders} alpha2Code={d.alpha2Code}></Country>)
               })}
             </div>
          );
